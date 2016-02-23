@@ -6,9 +6,9 @@
 
 /**
  * @class
- * @param {GoogleCalendarFramework~params} params
+ * @param {GoogleCalendarWebUIFramework~params} params
  */
-function GoogleCalendarFramework(params) {
+function GoogleCalendarWebUIFramework(params) {
     var CLIENT_ID; 
     var API_KEY; 
 
@@ -241,7 +241,7 @@ function GoogleCalendarFramework(params) {
 /**
  * The parameters used to bootstrap the Google Calendar integration into web view, such as
  * how the framework should retrieve the events data from the view and integrate interactable buttons.
- * @typedef     {Object}    GoogleCalendarFramework~params
+ * @typedef     {Object}    GoogleCalendarWebUIFramework~params
  * @property    {String}    clientId
  *                          (Optional) The client ID from the registered Google Calendar API application.
  * @property    {String}    apiKey
@@ -250,15 +250,15 @@ function GoogleCalendarFramework(params) {
  *                          (Optional) The URL that contains JSON file with app client ID and API key.
  * @property    {String}    calendarName
  *                          The calendar name to be created (or used if already exists).
- * @property    {GoogleCalendarFramework~fetchEvents}      fetchEvents
- * @property    {GoogleCalendarFramework~uiElements}       uiElements
- * @property    {GoogleCalendarFramework~uiLoadChecker}    uiLoadChecker
- * @property    {GoogleCalendarFramework~uiWrapper}        uiWrapper
+ * @property    {GoogleCalendarWebUIFramework~fetchEvents}      fetchEvents
+ * @property    {GoogleCalendarWebUIFramework~uiElements}       uiElements
+ * @property    {GoogleCalendarWebUIFramework~uiLoadChecker}    uiLoadChecker
+ * @property    {GoogleCalendarWebUIFramework~uiWrapper}        uiWrapper
  */
 
 /**
  * List of DOM elements for the framework to attach event handlers to.
- * @typedef     {Object}    GoogleCalendarFramework~elements
+ * @typedef     {Object}    GoogleCalendarWebUIFramework~elements
  * @property    {Object}    revoke      - The revoke button.
  * @property    {Object}    auth        - The authorize button.
  * @property    {Object}    insert      - The "Add to Calendar" button.
@@ -268,7 +268,7 @@ function GoogleCalendarFramework(params) {
 
 /**
  * Event object that Google Calendar API accepts for creating new event.
- * @typedef     {Object}    GoogleCalendarFramework~event
+ * @typedef     {Object}    GoogleCalendarWebUIFramework~event
  * @property    {String}    summary
  * @property    {String}    location
  * @property    {Object}    start
@@ -278,23 +278,23 @@ function GoogleCalendarFramework(params) {
  */
 
 /**
- * @callback GoogleCalendarFramework~fetchEvents
- * @return  {GoogleCalendarFramework~event[]}
+ * @callback GoogleCalendarWebUIFramework~fetchEvents
+ * @return  {GoogleCalendarWebUIFramework~event[]}
  */
 
 /**
- * @callback GoogleCalendarFramework~uiElements
- * @return  {GoogleCalendarFramework~elements}
+ * @callback GoogleCalendarWebUIFramework~uiElements
+ * @return  {GoogleCalendarWebUIFramework~elements}
  */
 
 /**
  * Check whether the web view is ready to be integrated with the framework.
- * @callback GoogleCalendarFramework~uiLoadChecker
+ * @callback GoogleCalendarWebUIFramework~uiLoadChecker
  * @return  {Boolean}
  */
 
 /**
  * Callback function that returns a DOM element in which the interactable buttons should reside.
- * @callback GoogleCalendarFramework~uiWrapper
+ * @callback GoogleCalendarWebUIFramework~uiWrapper
  * @return  {Object} 
  */

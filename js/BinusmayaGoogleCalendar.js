@@ -11,14 +11,13 @@
 // @grant        none
 // ==/UserScript==
 
-
 var columnMapping = [
     'Date', 'Shift', 'Status',
     'Course', 'Credits', 'Class',
     'Room', 'Campus'
 ];
 
-GoogleCalendarFramework({
+GoogleCalendarWebUIFramework({
     credentialsUrl: "http://frizz925.github.io/js/GoogleCalendarAppCredentials.json",
     calendarName: "Binusmaya Calendar",
     fetchEvents: function() {
