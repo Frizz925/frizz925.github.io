@@ -3,6 +3,7 @@
  * http://frizz925.github.io/
  * Frizz925@hotmail.com
  */
+"use strict";
 
 /**
  * @class
@@ -22,7 +23,7 @@ function GoogleCalendarWebUIFramework(params) {
         calendarName: self.calendarName
     };
 
-    var elements = self.elements();
+    var elements = self.uiElements;
     var credentials;
     var gapi;
 
