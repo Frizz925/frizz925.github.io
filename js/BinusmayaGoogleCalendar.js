@@ -4,6 +4,7 @@
 // @version      2.0
 // @description  Add shown class schedules into Google Calendar. Standalone version without using web server.
 // @author       IZ14-0
+// @downloadURL  http://frizz925.github.io/js/BinusmayaGoogleCalendar.js
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js
 // @require      https://apis.google.com/js/client.js
 // @require      http://frizz925.github.io/js/GoogleCalendarWebUIFramework.min.js
