@@ -258,7 +258,7 @@ function GoogleCalendarWebUIFramework(params) {
 
 /**
  * List of DOM elements for the framework to attach event handlers to.
- * @typedef     {Object}    GoogleCalendarWebUIFramework~elements
+ * @typedef     {Object}    GoogleCalendarWebUIFramework~uiElements
  * @property    {Object}    revoke      - The revoke button.
  * @property    {Object}    auth        - The authorize button.
  * @property    {Object}    insert      - The "Add to Calendar" button.
@@ -280,11 +280,6 @@ function GoogleCalendarWebUIFramework(params) {
 /**
  * @callback GoogleCalendarWebUIFramework~fetchEvents
  * @return  {GoogleCalendarWebUIFramework~event[]}
- */
-
-/**
- * @callback GoogleCalendarWebUIFramework~uiElements
- * @return  {GoogleCalendarWebUIFramework~elements}
  */
 
 /**

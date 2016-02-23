@@ -58,14 +58,12 @@ GoogleCalendarWebUIFramework({
 
         return events;
     },
-    uiElements: function() {
-        return {
-            revoke: $("<a href='#'>Revoke</a>"),
-            auth: $("<a href='#'>Authorize</a>"),
-            insert: $("<a href='#'>Add to Calendar</a>"),
-            separator: $("<span> | </span>"),
-            loading: $("<span>Loading...</span>")
-        };
+    uiElements: {
+        revoke: $("<a href='#'>Revoke</a>"),
+        auth: $("<a href='#'>Authorize</a>"),
+        insert: $("<a href='#'>Add to Calendar</a>"),
+        separator: $("<span> | </span>"),
+        loading: $("<span>Loading...</span>")
     },
     uiLoadChecker: function() {
         return $('.tablewithborder').length;
