@@ -39,8 +39,6 @@ GoogleCalendarWebUIFramework({
                 course.push(parts[i]);
             }
             course = course.join(' ');
-
-            console.log(data['Start']);
             
             var summary = "[" + data['Type'] + "] " + course;
             var description = "Class: " + parts[parts.length-4];
