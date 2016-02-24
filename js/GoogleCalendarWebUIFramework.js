@@ -15,11 +15,13 @@ function GoogleCalendarWebUIFramework(params) {
 
     var SCOPES = "https://www.googleapis.com/auth/calendar";
     var POLL_INTERVAL = 500;
+    var CONCURRENY_MAX = 4;
 
     var self = params || {};
     var handlers = {};
     var globals = {
         eventCount: 0,
+        concurrentRequest: 0,
         calendarName: self.calendarName
     };
 
@@ -100,7 +102,6 @@ function GoogleCalendarWebUIFramework(params) {
 
     handlers.APIError = function(error) {
         console.log(error);
-        alert("There's an error. Check the console for more information.");
     };
 
     function processSchedules(calendarId) {
@@ -145,6 +146,13 @@ function GoogleCalendarWebUIFramework(params) {
     }
 
     function insertEvent(json) {
+        if (globals.concurrentRequest >= CONCURRENY_MAX) {
+            setTimeout(function() {
+                insertEvent(json);
+            }, POLL_INTERVAL);
+            return;
+        }
+
         gapi.client.calendar.events.list({
             calendarId: globals.calendarId,
             timeMin:  json.start.dateTime,
@@ -160,7 +168,9 @@ function GoogleCalendarWebUIFramework(params) {
                     eventHandled();
                 }, handlers.APIError);
             }
+            globals.concurrentRequest--;
         }, handlers.APIError);
+        globals.concurrentRequest++;
     }
 
     $(elements.revoke).click(handlers.RevokeRequest);
