@@ -11,6 +11,7 @@
 // @match        http://apps.binusmaya.binus.ac.id/LMS/newSchedule.aspx*
 // @grant        none
 // ==/UserScript==
+"use strict";
 
 var columnMapping = [
     'Date', 'Shift', 'Status',
@@ -69,7 +70,7 @@ GoogleCalendarWebUIFramework({
         return $('.tablewithborder').length;
     },
     uiWrapper: function() {
-        var div = $('#thought > div:first-child')
+        var div = $('#thought > div:first-child');
         var container = $("<div></div>");
         div.after(container);
         return container;
