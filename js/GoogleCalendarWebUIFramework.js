@@ -1,3 +1,8 @@
+// ==ClosureCompiler==
+// @compilation_level SIMPLE_OPTIMIZATIONS
+// @output_file_name GoogleCalendarWebUIFramework.min.js
+// ==/ClosureCompiler==
+
 /**
  * Google Calendar Web UI Framework v1.0
  * http://frizz925.github.io/
@@ -138,8 +143,9 @@ function GoogleCalendarWebUIFramework(params) {
     }
 
     function eventHandled() {
+        globals.concurrentRequest--;
         globals.eventCount--;
-        if (globals.eventCount == 0) {
+        if (globals.eventCount <= 0) {
             loadingState(false);
             alert("Schedules updated");
         }
@@ -153,13 +159,14 @@ function GoogleCalendarWebUIFramework(params) {
             return;
         }
 
+        globals.concurrentRequest++;
         gapi.client.calendar.events.list({
             calendarId: globals.calendarId,
             timeMin:  json.start.dateTime,
             timeMax:  json.end.dateTime
         }).then(function(resp) {
             if (resp.result.items.length) {
-                console.log("Event '" + json.summary + "'' has conflicting event at '" + json.start.dateTime + "'");
+                console.log("Event '" + json.summary + "' has conflicting event at '" + json.start.dateTime + "'");
                 eventHandled();
             } else {
                 json['calendarId'] = globals.calendarId;
@@ -168,9 +175,7 @@ function GoogleCalendarWebUIFramework(params) {
                     eventHandled();
                 }, handlers.APIError);
             }
-            globals.concurrentRequest--;
         }, handlers.APIError);
-        globals.concurrentRequest++;
     }
 
     $(elements.revoke).click(handlers.RevokeRequest);
