@@ -5,6 +5,7 @@
 // @description  Add shown class schedules into Google Calendar. Standalone version without using web server.
 // @author       IZ14-0
 // @downloadURL  http://frizz925.github.io/js/BinusmayaGoogleCalendar.js
+// @require      https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js
 // @require      https://apis.google.com/js/client.js
 // @require      http://frizz925.github.io/js/GoogleCalendarWebUIFramework.min.js
@@ -39,8 +40,9 @@ GoogleCalendarWebUIFramework({
                 var description = 
                     "Class: " + data['Class'] + "\n" +
                     "Credits: " + data['Credits'];
-                var start = (new Date(data['Date'] + " " + time[0])).toISOString();
-                var end = (new Date(data['Date'] + " " + time[1])).toISOString();
+					//Friday, 26 Feb 2016 07:20
+                var start = moment(data['Date'] + " " + time[0], "dddd, DD MMM YYYY HH:mm").toISOString();
+                var end = moment(data['Date'] + " " + time[1], "dddd, DD MMM YYYY HH:mm").toISOString();
                 
                 var json = {
                     'summary'   : summary,
