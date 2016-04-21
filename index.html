@@ -1,14 +1,15 @@
 <html>
 	<head>
 		<title>frizz925.github.io - Google Calendar Integration Userscripts</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 		<style>
 			body {
-				font-family: "Helvetica", "Arial", sans-serif;
+				font-family: "Open Sans", "Arial", sans-serif;
 				font-size: 10pt;
 				color: #333;
 			}
 			a {
-				color: inherit;
+				color: #4080d0;
 			}
 			h3, h4 {
 				margin: 0;
@@ -18,20 +19,57 @@
 				font-weight: 400;
 				margin-bottom: 12px;
 			}
+            hr {
+                border: none;
+                height: 1px;
+                background-color: #333;
+                margin: 15px 0;
+            }
 			ul {
 				list-style: none;
 				margin: 0;
 				padding: 0;
 			}
+            .step-list img {
+                max-width: 600px;
+                display: block;
+                margin-bottom: 15px;
+            }
+
+            .divided > div {
+                float: left;
+            }
+
+            .divided > div:first-child {
+                width: 600px;
+            }
+
+            .divided > div::before {
+                font-weight: 600;
+                display: block;
+            }
 		</style>
 	</head>
 	<body>
 		<h3>Google Calendar Integration Userscripts</h3>
-		<h4>To be used with <b>Greasemonkey on Firefox</b> or <b>Tampermonkey on Chrome</b></h4>
+        <h4>To be used with <a href="https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/">Greasemonkey</a> on <b>Firefox</b> or <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en">Tampermonkey</a> on <b>Chrome</b></h4>
 		<ul>
 			<li><a href="/js/BinusmayaGoogleCalendar.js">Binusmaya class schedule</a></li>
             <li><a href="/js/BinusmayaExamGoogleCalendar.js">Binusmaya exam schedule (NEW)</a></li>
 			<li><a href="/js/MessierGoogleCalendar.js">Messier teaching schedule</a></li>
 		</ul>
+        <hr/>
+        <h3>How to Use</h3>
+        <div class="divided-header"></div>
+        <ol class="step-list">
+            <li class="divided">
+                <div class="for-chrome">
+                    Install <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en">Tampermonkey</a> from Chrome Web Store
+                </div>
+                <div class="for-firefox">
+                    Install <a href="https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/">Greasemonkey</a> from Add-ons for Firefox
+                </div>
+            </li>
+        </ol>
 	</body>
 </html>
